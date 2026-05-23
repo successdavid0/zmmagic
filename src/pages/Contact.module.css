@@ -1,0 +1,128 @@
+.header {
+  padding-top: calc(var(--nav-h) + 80px);
+  padding-bottom: 48px;
+  background: var(--bg);
+}
+.headerInner { text-align: center; }
+
+.tag {
+  display: inline-flex; align-items: center;
+  font-size: .74rem; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--accent);
+  background: var(--accent-glow); border: 1px solid rgba(0,200,232,.2);
+  border-radius: 100px; padding: 4px 14px; margin-bottom: 16px;
+}
+.title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700; line-height: 1.15; letter-spacing: -.03em;
+  color: var(--white); margin-bottom: 14px;
+}
+.sub { max-width: 500px; margin: 0 auto; color: var(--muted); font-size: 1rem; line-height: 1.72; }
+
+.main { padding: 48px 0 96px; background: var(--bg); }
+
+.grid {
+  display: grid; grid-template-columns: 5fr 7fr; gap: 64px; align-items: start;
+}
+
+/* Book card */
+.bookCard {
+  background: var(--bg-2);
+  border: 1.5px solid var(--accent);
+  border-radius: 18px; padding: 32px 28px;
+  margin-bottom: 32px;
+}
+.bookIcon  { font-size: 1.6rem; margin-bottom: 12px; }
+.bookTitle { font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+.bookDesc  { font-size: .9rem; color: var(--muted); line-height: 1.65; margin-bottom: 20px; }
+
+.btnPrimary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent); color: var(--bg);
+  font-size: .95rem; font-weight: 600;
+  padding: 14px 24px; border-radius: var(--radius);
+  border: none; cursor: pointer;
+  transition: background .22s, box-shadow .22s, transform .22s;
+  box-shadow: 0 0 24px rgba(0,200,232,.25);
+}
+.btnPrimary:hover { background: #22d9f4; box-shadow: 0 0 36px rgba(0,200,232,.4); transform: translateY(-2px); }
+
+/* Email */
+.emailBlock { margin-bottom: 32px; }
+.emailLabel {
+  font-size: .78rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: .1em; color: var(--muted); margin-bottom: 10px;
+}
+.emailLink {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: .95rem; font-weight: 500; color: var(--accent);
+  transition: opacity .2s;
+}
+.emailLink:hover { opacity: .75; }
+
+/* Socials */
+.socialsLabel {
+  font-size: .78rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: .1em; color: var(--muted); margin-bottom: 14px;
+}
+.socialLink {
+  display: flex; align-items: center; gap: 14px;
+  background: var(--bg-2); border: 1px solid var(--border);
+  border-radius: 12px; padding: 14px 18px;
+  font-size: .9rem; font-weight: 500; color: var(--text);
+  margin-bottom: 10px;
+  transition: border-color .22s, color .22s, transform .22s;
+}
+.socialLink:hover { border-color: var(--accent); color: var(--accent); transform: translateX(4px); }
+.socialIcon { font-size: 1.05rem; width: 24px; text-align: center; font-weight: 700; }
+
+/* Form */
+.formWrap {
+  background: var(--bg-2); border: 1px solid var(--border);
+  border-radius: 20px; padding: 48px 40px;
+}
+.formTitle { font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 28px; }
+.formRow   { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+/* Inputs — global because inside Field component */
+:global(.contact-input), input, textarea {
+  width: 100%; background: var(--bg-3);
+  border: 1.5px solid var(--border); border-radius: 10px;
+  padding: 13px 18px; font-family: var(--font);
+  font-size: .95rem; color: var(--text);
+  transition: border-color .2s, box-shadow .2s;
+  outline: none; resize: none;
+}
+input:focus, textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0,200,232,.1);
+}
+input::placeholder, textarea::placeholder { color: var(--border); }
+
+.inputError { border-color: #f87171 !important; }
+
+.submit {
+  width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--accent); color: var(--bg);
+  font-family: var(--font); font-size: 1rem; font-weight: 600;
+  padding: 15px 24px; border-radius: var(--radius);
+  border: none; cursor: pointer;
+  transition: background .22s, box-shadow .22s, transform .22s;
+  box-shadow: 0 0 24px rgba(0,200,232,.25);
+}
+.submit:hover:not(:disabled) { background: #22d9f4; box-shadow: 0 0 36px rgba(0,200,232,.4); transform: translateY(-2px); }
+.submit:disabled { opacity: .6; cursor: not-allowed; }
+
+.success {
+  padding: 32px 24px; text-align: center;
+  color: var(--accent); font-size: 1.05rem; font-weight: 600;
+  background: var(--accent-glow); border-radius: var(--radius);
+}
+
+@media (max-width: 900px) {
+  .grid    { grid-template-columns: 1fr; }
+  .formRow { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .formWrap { padding: 28px 20px; }
+}
